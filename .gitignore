@@ -1,6 +1,6 @@
 # Byte-compiled / optimized / DLL files
 ChatApp/__pycache__/
-auth/__pycache__/
+main/__pycache__/
 static/
 
 
