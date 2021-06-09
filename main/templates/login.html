@@ -2,28 +2,24 @@
 
 {% block content %}
 
-<div class="columns is-centered">
-  <div class="column is-5-tablet is-4-desktop is-6-widescreen">
-    <form action="/login/" method="post" class="box">
-      {% csrf_token %}
+<form action="/login/" method="post" class="box">
+  {% csrf_token %}
 
-      {% for field in form %}
+  {% for field in form %}
 
-      <div class="field">
-        <label class="label" for="{{ field.auto_id }}">{{ field.label }}</label>
-        {{ field }}
-      </div>
-
-      {% endfor %}
-
-      <button class="button is-success is-fullwidth my-5" type="submit">Login</button>
-
-      <div class="field mt-3">
-        <p>Don't have an account? <a class="link" href="{% url 'register' %}">Sign up</a></p>
-      </div>
-    </form>
+  <div class="field">
+    <label class="label" for="{{ field.auto_id }}">{{ field.label }}</label>
+    {{ field }}
   </div>
-</div>
+
+  {% endfor %}
+
+  <button class="button is-success is-fullwidth my-5" type="submit">Login</button>
+
+  <div class="field mt-3">
+    <p>Don't have an account? <a class="link" href="{% url 'register' %}">Sign up</a></p>
+  </div>
+</form>
 
 
 {% endblock %}
