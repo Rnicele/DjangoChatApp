@@ -1,65 +1,103 @@
-{% extends 'auth_layout.html' %}
-
-{% block content %}
+{% extends 'auth_layout.html' %} {% block content %}
 
 <div class="columns is-centered">
-    <div class="column is-5-tablet is-4-desktop is-6-widescreen">
-    <form action="" class="box">
+  <div class="column is-5-tablet is-4-desktop is-6-widescreen">
+    <form action="register" class="box" method="POST">
+      {% csrf_token %} {% comment %} safer way to send data {% endcomment %}
+      <div class="field">
+        <label for="" class="label">First Name</label>
+        <div class="control">
+          <input
+            type="text"
+            placeholder="e.g. First Name"
+            class="input"
+            name="first_name"
+            required
+          />
+        </div>
+      </div>
 
-        <div class="field">
-            <label for="" class="label">First Name</label>
-            <div class="control">
-                <input type="text" placeholder="e.g. First Name" class="input" required>
-            </div>
+      <div class="field">
+        <label for="" class="label">Last Name</label>
+        <div class="control">
+          <input
+            type="text"
+            placeholder="e.g. Last Name"
+            class="input"
+            name="last_name"
+            required
+          />
         </div>
+      </div>
 
-        <div class="field">
-            <label for="" class="label">Last Name</label>
-            <div class="control">
-                <input type="text" placeholder="e.g. Last Name" class="input" required>
-            </div>
+      <div class="field">
+        <label for="" class="label">Username</label>
+        <div class="control">
+          <input
+            type="text"
+            placeholder="e.g. Username"
+            class="input"
+            name="username"
+            required
+          />
         </div>
+      </div>
 
-        <div class="field">
-            <label for="" class="label">Username</label>
-            <div class="control">
-                <input type="text" placeholder="e.g. Username" class="input" required>
-            </div>
+      <div class="field">
+        <label for="" class="label">Email</label>
+        <div class="control">
+          <input
+            type="email"
+            placeholder="e.g. bobsmith@gmail.com"
+            class="input"
+            name="email"
+            required
+          />
         </div>
+      </div>
 
-        <div class="field">
-            <label for="" class="label">Email</label>
-            <div class="control">
-                <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required>
-            </div>
+      <div class="field">
+        <label for="" class="label">Password</label>
+        <div class="control">
+          <input
+            type="password"
+            placeholder="*******"
+            class="input"
+            name="password1"
+            required
+          />
         </div>
+      </div>
 
-        <div class="field">
-            <label for="" class="label">Password</label>
-            <div class="control">
-                <input type="password" placeholder="*******" class="input" required>
-            </div>
+      <div class="field">
+        <label for="" class="label">Confirm Password</label>
+        <div class="control">
+          <input
+            type="password"
+            placeholder="*******"
+            class="input"
+            name="password2"
+            required
+          />
         </div>
+      </div>
 
-        <div class="field">
-            <label for="" class="checkbox">
-                <input type="checkbox"> Remember me
-            </label>
-        </div>
-        <div class="field">
-            <button class="button is-success">
-                Sign-up
-            </button>
-        </div>
+      <div class="field">
+        <label for="" class="checkbox">
+          <input type="checkbox" /> Remember me
+        </label>
+      </div>
+      <div class="field">
+        <input type="submit" class="button is-success" value="Sign-up" />
+      </div>
 
-        <div class="field">
-            <label>
-                Already have an account? <a href="http://127.0.0.1:7000/login">Sign in</a>
-            </label>
-        </div>
+      <div class="field">
+        <label>
+          Already have an account? <a href="{% url 'login' %}">Sign in</a>
+        </label>
+      </div>
     </form>
-    </div>
+  </div>
 </div>
-        
 
 {% endblock %}
