@@ -1,87 +1,65 @@
-{% comment %} {% extends 'base.html' %} {% endcomment %}
+{% extends 'auth_layout.html' %}
 
 {% block content %}
 
-<!DOCTYPE html>
-<html style="overflow-y: hidden">
+<div class="columns is-centered">
+    <div class="column is-5-tablet is-4-desktop is-6-widescreen">
+    <form action="" class="box">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  {% comment %} <link rel="stylesheet" href="../../static/css/custom.css"> {% endcomment %}
-  <title>Chat App</title>
-  {% load django_simple_bulma %}
-  {% bulma %}
-</head>
-
-<body>
-    <section class="hero is-primary is-fullheight">
-        {% comment %} SIGN UP FORM {% endcomment %}
-        <div class="hero-body">
-            <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-5-tablet is-4-desktop is-6-widescreen">
-                <form action="" class="box">
-
-                    <div class="field">
-                        <label for="" class="label">First Name</label>
-                        <div class="control">
-                            <input type="text" placeholder="e.g. First Name" class="input" required>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="" class="label">Last Name</label>
-                        <div class="control">
-                            <input type="text" placeholder="e.g. Last Name" class="input" required>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="" class="label">Username</label>
-                        <div class="control">
-                            <input type="text" placeholder="e.g. Username" class="input" required>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="" class="label">Email</label>
-                        <div class="control">
-                            <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="" class="label">Password</label>
-                        <div class="control">
-                            <input type="password" placeholder="*******" class="input" required>
-                        </div>
-                    </div>
-
-                    <div class="field">
-                        <label for="" class="checkbox">
-                            <input type="checkbox"> Remember me
-                        </label>
-                    </div>
-                    <div class="field">
-                        <button class="button is-success">
-                            Sign-up
-                        </button>
-                    </div>
-
-                    <div class="field">
-                        <label>
-                            Already have an account? <a href="http://127.0.0.1:7000/login">Sign in</a>
-                        </label>
-                    </div>
-                </form>
-                </div>
-            </div>
+        <div class="field">
+            <label for="" class="label">First Name</label>
+            <div class="control">
+                <input type="text" placeholder="e.g. First Name" class="input" required>
             </div>
         </div>
-    </section>
 
-</body>
-</html>
+        <div class="field">
+            <label for="" class="label">Last Name</label>
+            <div class="control">
+                <input type="text" placeholder="e.g. Last Name" class="input" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="" class="label">Username</label>
+            <div class="control">
+                <input type="text" placeholder="e.g. Username" class="input" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="" class="label">Email</label>
+            <div class="control">
+                <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="" class="label">Password</label>
+            <div class="control">
+                <input type="password" placeholder="*******" class="input" required>
+            </div>
+        </div>
+
+        <div class="field">
+            <label for="" class="checkbox">
+                <input type="checkbox"> Remember me
+            </label>
+        </div>
+        <div class="field">
+            <button class="button is-success">
+                Sign-up
+            </button>
+        </div>
+
+        <div class="field">
+            <label>
+                Already have an account? <a href="http://127.0.0.1:7000/login">Sign in</a>
+            </label>
+        </div>
+    </form>
+    </div>
+</div>
+        
+
 {% endblock %}
