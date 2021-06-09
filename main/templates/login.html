@@ -1,8 +1,39 @@
-{% extends 'base.html' %}
+{% extends 'auth_layout.html' %}
 
 {% block content %}
 
-<h1 class="title">Login</h1>
-<h1 class="subtitle">Sign in now</h1>
+<div class="columns is-centered">
+  <div class="column is-5-tablet is-4-desktop is-6-widescreen">
+    <form action="" class="box">
+
+      <div class="field">
+        <label for="" class="label">Username</label>
+        <div class="control">
+          <input type="text" placeholder="e.g. Username" class="input" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="" class="label">Password</label>
+        <div class="control">
+          <input type="password" placeholder="*******" class="input" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <button class="button is-success">
+          Sign-in
+        </button>
+      </div>
+
+      <div class="field">
+        <label>
+          Don't have an account? <a href="{% url 'register' %}">Sign up</a>
+        </label>
+      </div>
+    </form>
+  </div>
+</div>
+
 
 {% endblock %}
