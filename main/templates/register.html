@@ -1,54 +1,37 @@
 {% extends 'auth_layout.html' %} {% block content %}
 
-<form action="register" class="box" method="POST">
-  {% csrf_token %} {% comment %} safer way to send data {% endcomment %}
+<form action="" class="box" method="POST">
+  {% csrf_token %}
   <div class="field">
-    <label for="" class="label">First Name</label>
-    <div class="control">
-      <input type="text" placeholder="e.g. First Name" class="input" name="first_name" required />
-    </div>
+    <label for="" class="label">{{ form.first_name.label }}</label>
+    <div class="control">{{form.first_name}}</div>
   </div>
 
   <div class="field">
-    <label for="" class="label">Last Name</label>
-    <div class="control">
-      <input type="text" placeholder="e.g. Last Name" class="input" name="last_name" required />
-    </div>
+    <label for="" class="label">{{ form.last_name.label }}</label>
+    <div class="control">{{form.last_name}}</div>
   </div>
 
   <div class="field">
-    <label for="" class="label">Username</label>
-    <div class="control">
-      <input type="text" placeholder="e.g. Username" class="input" name="username" required />
-    </div>
+    <label for="" class="label">{{ form.username.label }}</label>
+    <div class="control">{{form.username}}</div>
   </div>
 
   <div class="field">
-    <label for="" class="label">Email</label>
-    <div class="control">
-      <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" name="email" required />
-    </div>
+    <label for="" class="label">{{ form.email.label }}</label>
+    <div class="control">{{form.email}}</div>
   </div>
 
   <div class="field">
-    <label for="" class="label">Password</label>
-    <div class="control">
-      <input type="password" placeholder="*******" class="input" name="password1" required />
-    </div>
+    <label for="" class="label">{{ form.password1.label }}</label>
+    <div class="control">{{form.password1}}</div>
   </div>
 
   <div class="field">
-    <label for="" class="label">Confirm Password</label>
-    <div class="control">
-      <input type="password" placeholder="*******" class="input" name="password2" required />
-    </div>
+    <label for="" class="label">{{ form.password2.label }}</label>
+    <div class="control">{{form.password2}}</div>
   </div>
 
-  <div class="field">
-    <label for="" class="checkbox">
-      <input type="checkbox" /> Remember me
-    </label>
-  </div>
   <div class="field">
     <input type="submit" class="button is-success" value="Sign-up" />
   </div>

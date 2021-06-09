@@ -1,9 +1,11 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.contrib.auth.forms import UserCreationForm
 
-from .forms import LoginForm
+from .forms import LoginForm, CreateUserForm
 
 
 def sign_in(request):
@@ -28,7 +30,17 @@ def sign_in(request):
 
 
 def sign_up(request):
-    return render(request, 'register.html')
+    form = CreateUserForm()
+
+    print(request.method)
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        print(form.is_valid())
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
+    return render(request, 'register.html', context)
 
 
 def sign_out(request):

@@ -1,28 +1,24 @@
 <!DOCTYPE html>
-<html style="overflow-y: auto;">
+<html style="overflow-y: auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chat App</title>
+    {% load django_simple_bulma %} {% bulma %}
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Chat App</title>
-  {% load django_simple_bulma %}
-  {% bulma %}
-</head>
-
-<body>
-  <section class="hero is-primary is-fullheight">
-    {% comment %} SIGN UP FORM {% endcomment %}
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-5-tablet is-4-desktop is-6-widescreen">
-            {% block content %}
-            {% endblock %}
+  <body>
+    <section class="hero is-primary is-fullheight">
+      {% comment %} SIGN UP FORM {% endcomment %}
+      <div class="hero-body">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-6-widescreen">
+              {% block content %} {% endblock %}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-</body>
-
+    </section>
+  </body>
 </html>
