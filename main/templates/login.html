@@ -4,32 +4,22 @@
 
 <div class="columns is-centered">
   <div class="column is-5-tablet is-4-desktop is-6-widescreen">
-    <form action="" class="box">
+    <form action="/login/" method="post" class="box">
+      {% csrf_token %}
+
+      {% for field in form %}
 
       <div class="field">
-        <label for="" class="label">Username</label>
-        <div class="control">
-          <input type="text" placeholder="e.g. Username" class="input" required>
-        </div>
+        <label class="label" for="{{ field.auto_id }}">{{ field.label }}</label>
+        {{ field }}
       </div>
 
-      <div class="field">
-        <label for="" class="label">Password</label>
-        <div class="control">
-          <input type="password" placeholder="*******" class="input" required>
-        </div>
-      </div>
+      {% endfor %}
 
-      <div class="field">
-        <button class="button is-success">
-          Sign-in
-        </button>
-      </div>
+      <button class="button is-success is-fullwidth my-5" type="submit">Login</button>
 
-      <div class="field">
-        <label>
-          Don't have an account? <a href="{% url 'register' %}">Sign up</a>
-        </label>
+      <div class="field mt-3">
+        <p>Don't have an account? <a class="link" href="{% url 'register' %}">Sign up</a></p>
       </div>
     </form>
   </div>
