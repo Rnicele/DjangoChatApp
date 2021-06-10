@@ -40,7 +40,7 @@ def sign_up(request):
             form.save()
 
     context = {'form': form}
-    return render(request, 'register.html', context)
+    return render(request, 'login.html', context)
 
 
 def sign_out(request):
