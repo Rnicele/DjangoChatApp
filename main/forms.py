@@ -1,9 +1,8 @@
-from django.forms import CharField, Form, PasswordInput, EmailField
-from django.forms.fields import EmailField
-from django.forms.widgets import TextInput
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from django import forms
+from django.forms import CharField, EmailField, Form, PasswordInput
+from django.forms.fields import EmailField
+from django.forms.widgets import TextInput
 
 
 class LoginForm(Form):

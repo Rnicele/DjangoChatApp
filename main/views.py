@@ -1,12 +1,11 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib import messages
 
-from .forms import LoginForm, CreateUserForm
+from .forms import CreateUserForm, LoginForm
 
 
 def sign_in(request):
@@ -26,8 +25,11 @@ def sign_in(request):
             if user is not None:
                 login(request, user)
                 return HttpResponseRedirect('/chat/')
+        else:
+            messages.error(request, "Username or password is incorrect.")
 
-    return render(request, 'login.html', {'form': form})
+    context = {'form': form}
+    return render(request, 'login.html', context)
 
 
 def sign_up(request):
