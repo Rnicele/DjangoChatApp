@@ -1,7 +1,16 @@
 {% extends 'auth_layout.html' %} {% block content %}
 
 <form action="" class="box" method="POST">
-  {% csrf_token %}
+  {% for error in messages %}
+  <div class="notification is-danger">
+    <button
+      class="delete"
+      onclick="removeNotif(event)"
+      id="{{error.extra_tags}}"
+    ></button>
+    <p id="error">{{error}}</p>
+  </div>
+  {% endfor %} {% csrf_token %}
   <div class="field">
     <label for="" class="label">{{ form.first_name.label }}</label>
     <div class="control">{{form.first_name}}</div>
@@ -42,5 +51,4 @@
     </label>
   </div>
 </form>
-
 {% endblock %}

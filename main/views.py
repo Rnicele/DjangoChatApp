@@ -2,8 +2,9 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib import messages
 
 from .forms import LoginForm, CreateUserForm
 
@@ -38,9 +39,22 @@ def sign_up(request):
         print(form.is_valid())
         if form.is_valid():
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
+            return redirect('login')
+        else:
+            print(form.errors)
+            for error in form.errors:
+                print(error)
+                if error == 'password2':
+                    messages.error(
+                        request, "Password did not match.", extra_tags='password')
+                elif error == 'username':
+                    messages.error(
+                        request, "Username already existed.", extra_tags='username')
 
     context = {'form': form}
-    return render(request, 'login.html', context)
+    return render(request, 'register.html', context)
 
 
 def sign_out(request):
