@@ -5,6 +5,15 @@
 <form action="/login/" method="post" class="box">
   {% csrf_token %}
 
+  {% for error in messages %}
+
+  <div class="notification is-danger">
+    <button class="delete" onclick="removeNotif(event)"></button>
+    {{error}}
+  </div>
+
+  {% endfor %}
+
   {% for field in form %}
 
   <div class="field">
@@ -14,7 +23,7 @@
 
   {% endfor %}
 
-  <button class="button is-success is-fullwidth my-5" type="submit">
+  <button class="button is-success" type="submit">
     Login
   </button>
 

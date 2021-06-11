@@ -25,11 +25,10 @@ def sign_in(request):
             if user is not None:
                 login(request, user)
                 return HttpResponseRedirect('/chat/')
-        else:
-            messages.error(request, "Username or password is incorrect.")
+            else:
+                messages.error(request, "Username or password is incorrect.")
 
-    context = {'form': form}
-    return render(request, 'login.html', context)
+    return render(request, 'login.html', {'form': form})
 
 
 def sign_up(request):
