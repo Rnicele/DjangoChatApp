@@ -1,20 +1,13 @@
-{% extends 'auth_layout.html' %}
-
-{% block content %}
+{% extends 'auth_layout.html' %} {% block content %}
 
 <form action="/login/" method="post" class="box">
-  {% csrf_token %}
+  {% csrf_token %} {% for error in messages %}
 
-  {% for error in messages %}
-
-  <div class="notification is-danger">
+  <div class="notification is-{{error.extra_tags}}">
     <button class="delete" onclick="removeNotif(event)"></button>
     {{error}}
   </div>
-
-  {% endfor %}
-
-  {% for field in form %}
+  {% endfor %} {% for field in form %}
 
   <div class="field">
     <label class="label" for="{{ field.auto_id }}">{{ field.label }}</label>
@@ -23,9 +16,7 @@
 
   {% endfor %}
 
-  <button class="button is-success" type="submit">
-    Login
-  </button>
+  <button class="button is-success" type="submit">Login</button>
 
   <div class="field mt-3">
     <p>

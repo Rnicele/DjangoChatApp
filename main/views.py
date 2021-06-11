@@ -26,7 +26,8 @@ def sign_in(request):
                 login(request, user)
                 return HttpResponseRedirect('/chat/')
             else:
-                messages.error(request, "Username or password is incorrect.")
+                messages.error(
+                    request, "Username or password is incorrect.", extra_tags='danger')
 
     return render(request, 'login.html', {'form': form})
 
@@ -41,7 +42,8 @@ def sign_up(request):
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for ' + user)
+            messages.success(
+                request, 'Account was created for ' + user, extra_tags='success')
             return redirect('login')
         else:
             print(form.errors)
