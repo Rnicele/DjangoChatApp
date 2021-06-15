@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 
+
 from .forms import CreateUserForm, LoginForm
 
 
@@ -34,11 +35,9 @@ def sign_in(request):
 
 def sign_up(request):
     form = CreateUserForm()
-
-    print(request.method)
     if request.method == 'POST':
         form = CreateUserForm(request.POST)
-        print(form.is_valid())
+
         if form.is_valid():
             form.save()
             user = form.cleaned_data.get('username')
@@ -46,12 +45,13 @@ def sign_up(request):
                 request, 'Account was created for ' + user, extra_tags='success')
             return redirect('login')
         else:
-            print(form.errors)
             for error in form.errors:
-                print(error)
                 if error == 'password2':
-                    messages.error(
-                        request, "Password did not match.", extra_tags='password')
+                    list_Error = form.errors['password2'].as_data()
+                    for er in list_Error:
+                        string = " ".join(er)  # CONVERT TO STRING
+                        messages.error(
+                            request, string, extra_tags='password')
                 elif error == 'username':
                     messages.error(
                         request, "Username already existed.", extra_tags='username')
